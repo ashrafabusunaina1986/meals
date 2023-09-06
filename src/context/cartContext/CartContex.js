@@ -1,53 +1,85 @@
 import React, { createContext, useReducer } from 'react'
 
-export const Cart_Context=createContext({
-    items:[],
-    totalAmount:0,
-    addItem:(item)=>{},
-    removeItem:(id)=>{}
+export const Cart_Context = createContext({
+    items: [],
+    totalAmount: 0,
+    addItem: (item) => { },
+    removeItem: (id) => { }
 })
 
-const defaultCarts={
-    items:[],
-    totalAmount:0
+const defaultCarts = {
+    items: [],
+    totalAmount: 0
 }
-const CartReducer=(state,action)=>{
-    if(action.type==='ADD'){
-        const updateItems=state.items.concat(action.item)
-        const updateTotalAmount=state.totalAmount+action.item.price*action.item.amount
-        return{
-            items:updateItems,
-            totalAmount:updateTotalAmount
+const CartReducer = (state, action) => {
+    if (action.type === 'ADD') {
+
+        const updateTotalAmount = state.totalAmount + action.item.price * action.item.amount
+
+        const existCartItemIndex = state.items.findIndex(item => item.id === action.item.id)
+        const existCartItem = state.items[existCartItemIndex]
+
+        let updatedItems
+        if (existCartItem) {
+            const updateItem = {
+                ...existCartItem,
+                amount: existCartItem.amount + action.item.amount
+            }
+            updatedItems = [...state.items]
+            updatedItems[existCartItemIndex] = updateItem
+        } else {
+            updatedItems = state.items.concat(action.item)
+        }
+        return {
+            items: updatedItems,
+            totalAmount: updateTotalAmount
         }
     }
-    if(action.type==='REMOVE'){
+    if (action.type === 'REMOVE') {
+        const indRemove=state.items.findIndex(item => item.id === action.id)
+        const itemRemoved = state.items[indRemove]
+        let totalAmountRemove,updatedItems
+        totalAmountRemove = state.totalAmount -
+            itemRemoved.price 
         
+        if(itemRemoved.amount===1){
+             updatedItems = state.items.filter(item => item.id !== action.id)
+        }else{
+            const updateItem={...itemRemoved,amount:itemRemoved.amount-1}
+            updatedItems=[...state.items]
+            updatedItems[indRemove]=updateItem
+        }
+        
+        return {
+            items: updatedItems,
+            totalAmount: totalAmountRemove
+        }
     }
     return defaultCarts
 }
 
-const CartContex = ({children}) => {
-    const [cartsState,dispatchCartAction]=useReducer(CartReducer,defaultCarts)
+const CartContex = ({ children }) => {
+    const [cartsState, dispatchCartAction] = useReducer(CartReducer, defaultCarts)
 
-    const addItem=item=>{
-        dispatchCartAction({type:'ADD',item:item})
+    const addItem = item => {
+        dispatchCartAction({ type: 'ADD', item: item })
     }
-    const removeItem=id=>{
-        dispatchCartAction({type:"REMOVE",id:id})
+    const removeItem = id => {
+        dispatchCartAction({ type: "REMOVE", id: id })
     }
 
-    const cartObject={
-        items:cartsState.items,
-        totalAmount:cartsState.totalAmount,
-        addItem:addItem,
-        removeItem:removeItem
+    const cartObject = {
+        items: cartsState.items,
+        totalAmount: cartsState.totalAmount,
+        addItem: addItem,
+        removeItem: removeItem
     }
-  
-  return (
-    <Cart_Context.Provider value={cartObject}>
-        {children}
-    </Cart_Context.Provider>
-  )
+
+    return (
+        <Cart_Context.Provider value={cartObject}>
+            {children}
+        </Cart_Context.Provider>
+    )
 }
 
 export default CartContex

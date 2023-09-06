@@ -1,3 +1,9 @@
+.cart-itemss{
+    overflow: hidden;
+    overflow-y: scroll;
+    min-height: 0;
+    max-height: 40vh;
+}
 .total
 {
     display: flex;

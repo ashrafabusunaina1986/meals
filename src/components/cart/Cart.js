@@ -9,13 +9,13 @@ const Cart = (props) => {
     const cartctx = useContext(Cart_Context)
     const TotalAmount = `$${cartctx.totalAmount}`
     const cartItemRemoveHandler=(id)=>{
-
+        cartctx.removeItem(id)
     }
     const cartItemAddHandler=(item)=>{
-
+        cartctx.addItem(item)
     }
     const hasItems = cartctx.items.length > 0
-    const cartItem = <ul className={styles['cart-items']}>{cartctx.items
+    const cartItem = <ul className={styles['cart-itemss']}>{cartctx.items
         .map(meal => {
             return <CartItem key={meal.id} name={meal.name}
                 price={meal.price} amount={meal.amount}
