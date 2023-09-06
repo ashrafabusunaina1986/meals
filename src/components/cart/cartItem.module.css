@@ -17,6 +17,16 @@
     align-items: center;
     gap: 10px;
 }
+.action button{
+    background-color: #aaa;
+    color: #555;
+    border: brown;
+}
+.action button:hover,
+.action button:active{
+    background-color: rgb(73, 6, 6);
+    color: #aaa;
+}
 .summary{
     display: flex;
     align-items: center;
