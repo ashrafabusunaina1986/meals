@@ -1,8 +1,10 @@
 'use client'
-import React from 'react'
+import React, { useState } from 'react'
 import Card from '../UI/card/Card';
 import MealItem from './mealitem/MealItem';
 import styles from './availabemeals.module.css'
+import AddMeal from './addmael/AddMeal';
+import Button from '../UI/button/Button';
 const DUMMY_MEALS = [
     {
         id: 'm1',
@@ -31,8 +33,6 @@ const DUMMY_MEALS = [
 ];
 
 const AvailableMeals = () => {
-
-
     return (
         <section className={styles.meals}>
             <Card>
