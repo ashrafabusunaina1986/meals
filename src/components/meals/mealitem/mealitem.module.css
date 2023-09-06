@@ -1,0 +1,20 @@
+.meal{
+    border-bottom: 0.5px solid #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.meal h3{
+    font-size: 20px;font-weight: bold;
+    margin: 5px auto;
+}
+.desc{
+    text-align: justify;
+    font-weight: 400;
+
+}
+.price{
+    color: #4d0606;
+    font-size: 16px;font-weight: bold;
+    margin: 10px auto;
+}
