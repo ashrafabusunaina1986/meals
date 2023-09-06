@@ -1,0 +1,15 @@
+.button{
+    position: absolute;
+    top: 10rem;
+    left: 10%;
+}
+.meals{
+    position: absolute;
+    top: 15rem;
+    left: 10%;
+    width: 80%;
+    min-height: 5rem;
+    color: #555;
+    background-color: #fff;
+    box-shadow: 0 0 10px 4px #c5c5c5;
+}
