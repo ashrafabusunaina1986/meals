@@ -1,23 +1,36 @@
 import Button from '@/components/UI/button/Button'
 import Input from '@/components/UI/input/Input'
 import styles from './addmeal.module.css'
-import React from 'react'
-import Modal from '@/components/UI/modal/Modal'
+import React, { useEffect, useState } from 'react'
 
-const AddMeal = () => {
+const AddMeal = (props) => {
+  const [meal, setMeal] = useState({
+    name: '',
+    description: '',
+    price: 0
+  })
+  const change = (e) => {
+    const { id, value } = e.target
+    setMeal({
+      ...meal, [id]: value
+    })
+  }
+  useEffect(()=>{
+    props.setMeal(meal)
+  },[meal])
   return (
     <div>
       <div className={styles.backdrop} />
-      <form onSubmit={''} className={styles.form}>
+      <form  className={styles.form}>
         <div>
           <h1>Add meal</h1>
         </div>
-        <Input input={{ id: 'name', type: 'text', value: '' ,placeholder:'Name'}} />
-        <Input input={{ id: 'description', type: 'text', value: '' ,placeholder:'Description'}} />
-        <Input input={{ id: 'price', type: 'number', value: '',placeholder:'price'}}  />
+        <Input input={{ id: 'name', type: 'text', value: `${meal.name}`, placeholder: 'Name'}}  onChange={ change }  />
+        <Input input={{ id: 'description', type: 'text', value: `${meal.description}`, placeholder: 'Description'}} onChange= { change }  />
+        <Input input={{ id: 'price', type: 'number', value: `${meal.price}`, placeholder: 'price'}} onChange= { change }  />
         <div className={styles.action}>
-          <Button className={styles.cancel}>Cancel</Button>
-          <Button className={styles.add}>Add</Button>
+          <Button className={styles.cancel} onClick={props.onCancel}>Cancel</Button>
+          <Button className={styles.add} onClick={props.addMeal}>Add</Button>
         </div>
 
       </form>

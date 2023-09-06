@@ -3,9 +3,10 @@ import Cart from '@/components/cart/Cart'
 import './globals.css'
 import Header from '@/components/layout/heders/Header'
 import CartContex from '@/context/cartContext/CartContex'
-
+import Addm, { Add_Context } from '@/context/addmeal/Addm'
 import { Inter } from 'next/font/google'
 import { useContext, useState } from 'react'
+import AddMeal from '@/components/meals/addmael/AddMeal'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,20 +25,25 @@ export default function RootLayout({ children }) {
   const hideCart = () => {
     setIsShowCart(false)
   }
-
   return (
     <html lang="en">
       <body className={inter.className}>
+      <Addm>
         <CartContex>
-          <div className='container'>
-            {isShowCart ? <Cart onHideCart={hideCart} /> : ''}
-            <Header onShowCart={showCart} />
-            {children}
-            <section className='footer'>
+          
+            <div className='container'>
+              
+              {isShowCart ? <Cart onHideCart={hideCart} /> : ''}
+              
+              <Header onShowCart={showCart} />
+              {children}
+              <section className='footer'>
 
-            </section>
-          </div>
+              </section>
+            </div>
+          
         </CartContex>
+        </Addm>
       </body>
     </html>
   )

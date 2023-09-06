@@ -5,8 +5,9 @@
     margin: auto;
     margin-top: -13rem;
     position: inherit;
-    top: -17rem;
-    position: relative;
+    top: -1rem;
+    left: 21%;
+    position: absolute;
     background-color: #383838;
     color: white;
     border-radius: 14px;
