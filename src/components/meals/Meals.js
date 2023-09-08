@@ -6,8 +6,9 @@ import classes from './meal.module.css'
 const Meals = () => {
   return (
     <div  className={classes.Meals}>
-        <AvailableMeals/>
+        
         <MealsSummary/>
+        <AvailableMeals/>
     </div >
   )
 }

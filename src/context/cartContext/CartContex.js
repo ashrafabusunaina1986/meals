@@ -32,7 +32,7 @@ const CartReducer = (state, action) => {
         }
         return {
             items: updatedItems,
-            totalAmount: updateTotalAmount
+            totalAmount: Number(updateTotalAmount.toFixed(2))
         }
     }
     if (action.type === 'REMOVE') {
@@ -52,7 +52,7 @@ const CartReducer = (state, action) => {
         
         return {
             items: updatedItems,
-            totalAmount: totalAmountRemove
+            totalAmount: Number(totalAmountRemove)
         }
     }
     return defaultCarts

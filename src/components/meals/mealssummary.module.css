@@ -3,11 +3,9 @@
     max-width: 45rem;
     width: 90%;
     margin: auto;
-    margin-top: -13rem;
-    position: inherit;
-    top: -1rem;
-    left: 21%;
-    position: absolute;
+    top: -15rem;
+    left: 0%;
+    position: relative;
     background-color: #383838;
     color: white;
     border-radius: 14px;
