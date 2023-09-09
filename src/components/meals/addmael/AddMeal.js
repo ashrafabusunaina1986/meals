@@ -22,9 +22,11 @@ const AddMeal = (props) => {
     <div>
       <div className={styles.backdrop} />
       <form  className={styles.form}>
+        
         <div>
           <h1>Add meal</h1>
         </div>
+        {props.error && <div className={styles.error} >{props.error}</div>}
         <Input input={{ id: 'name', type: 'text', value: `${meal.name}`, placeholder: 'Name'}}  onChange={ change }  />
         <Input input={{ id: 'description', type: 'text', value: `${meal.description}`, placeholder: 'Description'}} onChange= { change }  />
         <Input input={{ id: 'price', type: 'number', value: `${meal.price}`, placeholder: 'price'}} onChange= { change }  />
