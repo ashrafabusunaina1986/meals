@@ -23,6 +23,9 @@
     flex-direction: column;
     gap: 10px;
 }
+.form input{
+    width: 90%;
+}
 .form h1{
     color: #555;
 }
