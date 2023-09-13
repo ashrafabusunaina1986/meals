@@ -22,29 +22,5 @@
     "name": "GreenBow",
     "description": "Healthy...and green...",
     "price": 18.99
-  },
-  {
-    "id": "m5",
-    "name": "chichen",
-    "description": "nice",
-    "price": 12
-  },
-  {
-    "id": "m6",
-    "name": "meat",
-    "description": "very nice",
-    "price": 20
-  },
-  {
-    "id": "m7",
-    "name": "fgjhjfdhtsshttthhht",
-    "description": "Place the flour in a resealable plastic bag and season with the garlic, 1 teaspoon salt and 1/4 teaspoon pepper. Place the chicken pieces in the bag with the flour and toss to coat (work in batches). Transfer the breadcrumbs to a rimmed plate, season with salt and pepper and set aside.",
-    "price": 8
-  },
-  {
-    "id": "m8",
-    "name": "شورمة ",
-    "description": "مكونة من لحمة خاروف وشراك ومذاقها زاكي",
-    "price": 13
   }
 ]

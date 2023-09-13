@@ -43,8 +43,8 @@ const AvailableMeals = (props) => {
     return (
         <section className={styles.meals}>
             <Card>
-                {isActive?<AddMeal onCancel={cancel} addMeal={addMeal} error={error} setMeal={setMeal} />:'' }
-                {!isActive && <Button onClick={ok} >Add Meal</Button> }
+                {/* {isActive?<AddMeal onCancel={cancel} addMeal={addMeal} error={error} setMeal={setMeal} />:'' }
+                {!isActive && <Button onClick={ok} >Add Meal</Button> } */}
                 <ul>
                     {
                         DUMMY_MEALS.map((meal) => {
